@@ -1,8 +1,8 @@
 # 计划管理工具 (Plan Manager)
 
-![CI Status](https://github.com/Larch-C/plan-manager/actions/workflows/ci.yml/badge.svg)(https://github.com/Larch-C/plan-manager/actions/workflows/ci.yml)
-![Release Status](https://github.com/Larch-C/plan-manager/actions/workflows/release.yml/badge.svg)(https://github.com/Larch-C/plan-manager/actions/workflows/release.yml)
-![Documentation Status](https://github.com/Larch-C/plan-manager/actions/workflows/docs.yml/badge.svg)(https://github.com/Larch-C/plan-manager/actions/workflows/docs.yml)
+[CI Status](https://github.com/Larch-C/plan-manager/actions/workflows/ci.yml)
+[Release Status](https://github.com/Larch-C/plan-manager/actions/workflows/release.yml)
+[Documentation Status](https://github.com/Larch-C/plan-manager/actions/workflows/docs.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 
 > [!WARNING]
@@ -40,9 +40,9 @@
 
 # Plan Manager
 
-![CI Status](https://github.com/Larch-C/plan-manager/actions/workflows/ci.yml/badge.svg)(https://github.com/Larch-C/plan-manager/actions/workflows/ci.yml)
-![Release Status](https://github.com/Larch-C/plan-manager/actions/workflows/release.yml/badge.svg)(https://github.com/Larch-C/plan-manager/actions/workflows/release.yml)
-![Documentation Status](https://github.com/Larch-C/plan-manager/actions/workflows/docs.yml/badge.svg)(https://github.com/Larch-C/plan-manager/actions/workflows/docs.yml)
+[CI Status](https://github.com/Larch-C/plan-manager/actions/workflows/ci.yml)
+[Release Status](https://github.com/Larch-C/plan-manager/actions/workflows/release.yml)
+[Documentation Status](https://github.com/Larch-C/plan-manager/actions/workflows/docs.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 
 > [!WARNING]
