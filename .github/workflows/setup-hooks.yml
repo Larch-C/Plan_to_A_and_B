@@ -49,6 +49,12 @@ jobs:
           echo "cd plan-manager" >> CONTRIBUTING.md
           echo "" >> CONTRIBUTING.md
           echo "# 创建虚拟环境并安装开发依赖" >> CONTRIBUTING.md
+          echo "python -m venv venv" >> CONTRIBUTING.md
+          echo "source venv/bin/activate  # Linux/macOS" >> CONTRIBUTING.md
+          echo "venv\\Scripts\\activate  # Windows" >> CONTRIBUTING.md
+          echo "pip install -e \".[dev]\"" >> CONTRIBUTING.md
+          echo "" >> CONTRIBUTING.md
+          echo "# 或者如果你使用uv" >> CONTRIBUTING.md
           echo "uv venv" >> CONTRIBUTING.md
           echo "uv pip install -e \".[dev]\"" >> CONTRIBUTING.md
           echo '```' >> CONTRIBUTING.md

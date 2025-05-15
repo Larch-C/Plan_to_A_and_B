@@ -31,19 +31,19 @@ jobs:
     
     - name: Check code formatting
       run: |
-        uv pip run --system black --check plan_manager tests
+        black --check plan_manager tests
     
     - name: Lint with flake8
       run: |
-        uv pip run --system flake8 plan_manager tests
+        flake8 plan_manager tests
     
     - name: Type check with mypy
       run: |
-        uv pip run --system mypy plan_manager
+        mypy plan_manager
     
     - name: Test with pytest
       run: |
-        uv pip run --system pytest --cov=plan_manager
+        pytest --cov=plan_manager
     
   build:
     runs-on: ubuntu-latest
