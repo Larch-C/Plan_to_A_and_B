@@ -31,4 +31,4 @@ repos:
         description: 确保提交消息符合约定式提交规范
         entry: tools/commit-msg
         language: script
-        stages: [commit-msg] 
+        stages: [commit-msg]

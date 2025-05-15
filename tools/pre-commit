@@ -17,19 +17,19 @@ def main():
     """尝试运行pre-commit检查"""
     try:
         print("使用pre-commit运行检查...")
-        result = subprocess.run(["pre-commit", "run", "--all-files"], 
+        result = subprocess.run(["pre-commit", "run", "--all-files"],
                                capture_output=True, text=True)
-        
+
         print(result.stdout)
-        
+
         if result.returncode != 0:
             print(result.stderr)
             print("\n代码检查失败，请修复上述问题后重试。")
             print("如果需要绕过检查，请使用 git commit --no-verify")
             return 1
-            
+
         return 0
-        
+
     except FileNotFoundError:
         print("错误: 未找到pre-commit。请安装: pip install pre-commit")
         return 1
@@ -38,4 +38,4 @@ def main():
         return 1
 
 if __name__ == "__main__":
-    sys.exit(main()) 
+    sys.exit(main())
