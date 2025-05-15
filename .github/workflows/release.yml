@@ -63,13 +63,29 @@ jobs:
       run: |
         python -m build
     
+    - name: Check PyPI credentials
+      id: check_creds
+      run: |
+        if [[ -n "${{ secrets.PYPI_USERNAME }}" && -n "${{ secrets.PYPI_API_TOKEN }}" ]]; then
+          echo "has_pypi_creds=true" >> $GITHUB_OUTPUT
+        else
+          echo "has_pypi_creds=false" >> $GITHUB_OUTPUT
+        fi
+    
     - name: Publish to PyPI
       # 不使用gh-action-pypi-publish，改用twine直接上传
+      if: steps.check_creds.outputs.has_pypi_creds == 'true'
       run: |
         python -m twine upload dist/*
       env:
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+    
+    - name: Skip PyPI Publish (No Credentials)
+      if: steps.check_creds.outputs.has_pypi_creds != 'true'
+      run: |
+        echo "跳过PyPI发布 - 未提供凭据"
+        echo "如需发布到PyPI，请在仓库Secrets中设置PYPI_USERNAME和PYPI_API_TOKEN"
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
