@@ -13,6 +13,8 @@
 - 通过多种条件筛选计划
 - 支持命令行和图形界面两种方式使用
 
+查看 [更新日志](CHANGELOG.md) 获取各版本详细功能列表与改动说明。
+
 ## 项目结构
 
 ```
@@ -42,6 +44,12 @@ plan_manager/
 ├── requirements/          # 依赖管理
 │   ├── base.txt           # 基础依赖
 │   └── dev.txt            # 开发依赖
+├── tools/                 # 开发工具脚本
+│   ├── generate_changelog.py  # 自动生成更新日志
+│   ├── version-bump           # 版本升级工具
+│   ├── pre-commit             # Git提交前钩子
+│   └── commit-msg             # Git提交消息验证钩子
+├── CHANGELOG.md           # 更新日志
 └── README.md              # 项目说明文档
 ```
 
@@ -193,9 +201,16 @@ uv venv
 uv pip install -e ".[dev]"
 # 或者
 uv pip install -r requirements/dev.txt
+
+# 设置Git钩子（可选，推荐）
+chmod +x tools/pre-commit tools/commit-msg
+ln -sf ../../tools/pre-commit .git/hooks/pre-commit
+ln -sf ../../tools/commit-msg .git/hooks/commit-msg
 ```
 
-### 代码格式化和检查
+### 自动化工具
+
+项目包含多个自动化工具，简化开发流程：
 
 ```bash
 # 代码格式化
@@ -206,7 +221,39 @@ uv pip run mypy plan_manager
 
 # 代码风格检查
 uv pip run flake8 plan_manager
+
+# 自动生成更新日志（基于Git提交记录）
+python tools/generate_changelog.py
+
+# 版本升级（自动更新版本号并生成更新日志）
+python tools/version-bump.py [major|minor|patch]
 ```
+
+### Git提交规范
+
+项目使用[约定式提交](https://www.conventionalcommits.org/zh-hans/)规范，提交消息格式为：
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+常用的类型包括：
+- `feat`: 新功能
+- `fix`: 修复bug
+- `docs`: 文档变更
+- `style`: 代码风格变更
+- `refactor`: 代码重构
+- `perf`: 性能优化
+- `test`: 测试相关
+- `build`: 构建系统
+- `ci`: CI配置
+- `chore`: 其他杂项
+
+使用规范的提交消息可以自动生成结构化的更新日志。
 
 ### 运行测试
 

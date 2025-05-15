@@ -45,4 +45,21 @@ target-version = ["py38"]
 [tool.mypy]
 python_version = "3.8"
 warn_return_any = true
-warn_unused_configs = true 
+warn_unused_configs = true
+
+[tool.changelog]
+# 更新日志配置
+auto_generate = true    # 是否在版本升级时自动生成
+conventional_commits = true  # 是否使用规范化提交规范
+categories = [           # 变更类别映射
+    {type = "feat", section = "新增"},
+    {type = "fix", section = "修复"},
+    {type = "docs", section = "文档"},
+    {type = "refactor", section = "优化"},
+    {type = "perf", section = "优化"},
+    {type = "style", section = "优化"},
+    {type = "test", section = "其他"},
+    {type = "build", section = "其他"},
+    {type = "ci", section = "其他"},
+    {type = "chore", section = "其他"},
+] 

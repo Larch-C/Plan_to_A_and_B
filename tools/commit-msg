@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+"""
+Git commit-msg钩子，用于验证提交消息是否符合Conventional Commits规范
+
+安装方法:
+1. 确保脚本可执行: chmod +x tools/commit-msg
+2. 建立符号链接到 .git/hooks 目录: ln -sf ../../tools/commit-msg .git/hooks/commit-msg
+
+规范化提交消息格式:
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+
+type可以是:
+- feat: 新功能
+- fix: 修复bug
+- docs: 文档变更
+- style: 代码风格变更，不影响代码功能
+- refactor: 代码重构，不添加新功能也不修复bug
+- perf: 性能优化
+- test: 添加或修改测试代码
+- build: 构建系统或外部依赖变更
+- ci: CI配置或脚本变更
+- chore: 其他变更，不修改src或测试文件
+
+相关文档: https://www.conventionalcommits.org/zh-hans/v1.0.0/
+"""
+
+import sys
+import re
+import os
+
+
+def validate_commit_message(msg_file):
+    with open(msg_file, 'r', encoding='utf-8') as f:
+        commit_msg = f.read()
+    
+    # 移除注释行
+    commit_msg = '\n'.join([line for line in commit_msg.split('\n') 
+                            if not line.startswith('#')])
+    
+    # 验证第一行（标题行）
+    lines = commit_msg.strip().split('\n')
+    if not lines:
+        print_error("提交消息不能为空")
+        return False
+    
+    title = lines[0].strip()
+    
+    # 验证标题行是否符合规范
+    pattern = r'^(feat|fix|docs|style|refactor|perf|test|build|ci|chore)(\([a-z0-9-]+\))?!?: .+'
+    if not re.match(pattern, title):
+        print_error("提交消息标题必须遵循格式: <type>[optional scope]: <description>")
+        print_error("可用的类型: feat, fix, docs, style, refactor, perf, test, build, ci, chore")
+        return False
+    
+    # 验证标题长度（建议不超过72个字符）
+    if len(title) > 72:
+        print_warning("提交消息标题过长（超过72个字符）")
+    
+    # 验证是否有空行分隔标题和正文
+    if len(lines) > 1 and lines[1].strip():
+        print_warning("标题和正文之间应有一个空行")
+    
+    return True
+
+
+def print_error(message):
+    """打印错误消息"""
+    print(f"\033[31m错误: {message}\033[0m")
+
+
+def print_warning(message):
+    """打印警告消息"""
+    print(f"\033[33m警告: {message}\033[0m")
+
+
+def main():
+    if len(sys.argv) != 2:
+        print("用法: commit-msg <commit-msg-file>")
+        return 1
+    
+    msg_file = sys.argv[1]
+    if not os.path.exists(msg_file):
+        print_error(f"找不到文件: {msg_file}")
+        return 1
+    
+    if not validate_commit_message(msg_file):
+        print("\n提交消息示例:")
+        print("  feat: 添加用户登录功能")
+        print("  fix(auth): 修复登录验证失败的问题")
+        print("  docs: 更新API文档")
+        print("  style: 代码格式化")
+        print("  refactor: 重构用户认证模块")
+        print("  perf: 优化数据库查询性能")
+        print("  test: 添加用户模块测试")
+        print("  build: 更新依赖包版本")
+        print("  ci: 配置GitHub Actions")
+        print("  chore: 更新.gitignore")
+        return 1
+    
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main()) 
