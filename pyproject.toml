@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plan-manager"
+version = "1.0.0"
+description = "一个简单的计划管理工具"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "GNU AGPL"}
+authors = [
+    {name = "麦咪", email = "tr@wenturc.com"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+plan-manager = "plan_manager.main:main"
+plan-manager-gui = "plan_manager.main:main_gui"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[tool.setuptools]
+packages = ["plan_manager"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true 

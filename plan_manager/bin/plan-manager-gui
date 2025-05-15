@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+"""
+计划管理工具 - 图形界面启动脚本
+"""
+
+import sys
+from plan_manager.main import main
+
+if __name__ == "__main__":
+    # 添加--gui参数强制使用图形界面
+    sys.argv.append("--gui")
+    sys.exit(main()) 
