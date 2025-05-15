@@ -46,9 +46,14 @@ jobs:
         if [[ "${{ github.event_name }}" != "pull_request" && -n $(git status -s) ]]; then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "style: 使用pre-commit自动修复代码风格问题"
-          git push
+          # 排除workflow文件，GitHub App没有权限更新它们
+          git status -s | grep -v "\.github/workflows/" | awk '{print $2}' | xargs git add
+          if [[ -n $(git status -s) ]]; then
+            git commit -m "style: 使用pre-commit自动修复代码风格问题"
+            git push
+          else
+            echo "没有需要提交的更改"
+          fi
         fi
     
     - name: Test with pytest

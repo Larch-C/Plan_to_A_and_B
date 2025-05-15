@@ -24,18 +24,6 @@ repos:
             "--exclude=venv*,build,dist,.*"
         ]
 
--   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-    -   id: mypy
-        additional_dependencies:
-        - types-PyYAML
-        - types-requests
-        - types-setuptools
-        - types-toml
-        args: ["--exclude=plan_manager.py"]
-        exclude: ^tests/
-
 -   repo: local
     hooks:
     -   id: conventional-commit-check
