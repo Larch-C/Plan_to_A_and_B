@@ -5,6 +5,39 @@
 [![Documentation Status](https://github.com/Larch-C/plan-manager/actions/workflows/docs.yml/badge.svg)](https://github.com/yourusername/plan-manager/actions/workflows/docs.yml)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 
+> [!WARNING]
+> **注意**：本仓库主要用于学习GitHub Actions工作流运行，不追求实用性，不确保构建的工具可以正常使用。
+
+## 工作流学习目的
+
+本仓库实现了以下GitHub Actions工作流，用于演示和学习CI/CD流程：
+
+1. **CI工作流** (ci.yml)
+   - 自动代码格式化和风格检查
+   - 多Python版本兼容性测试
+   - 使用pre-commit进行代码质量控制
+   - 自动修复并提交代码风格问题
+
+2. **发布工作流** (release.yml)
+   - 自动版本号管理
+   - 基于Git提交记录生成更新日志
+   - 构建Python包
+   - 发布到PyPI
+
+3. **文档工作流** (docs.yml)
+   - 自动构建项目文档
+   - 部署到GitHub Pages
+   - 根据README和CHANGELOG更新文档
+
+4. **钩子设置工作流** (setup-hooks.yml)
+   - 自动设置Git钩子
+   - 维护贡献指南
+   - 确保提交消息符合约定式提交规范
+
+这些工作流展示了自动化软件开发流程的各个环节，适合学习GitHub Actions的配置和使用。
+
+---
+
 这是一个简单的计划管理工具，可以帮助你存储、管理和跟踪各种计划任务。
 
 ## 功能特点

@@ -11,22 +11,13 @@ on:
         required: true
         default: ''
 
-# 工作流级别权限
+# 简化权限设置
 permissions:
   contents: write
-  id-token: write  # 用于PyPI发布的OpenID Connect认证
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # job级别权限
-    permissions:
-      contents: write
-      id-token: write  # 用于PyPI发布的OpenID Connect认证
-    
-    environment:
-      name: pypi
-      url: https://pypi.org/p/plan-manager
     
     steps:
     - uses: actions/checkout@v3
@@ -73,13 +64,12 @@ jobs:
         python -m build
     
     - name: Publish to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
-        packages-dir: dist/
-        skip-existing: true
-        verbose: true
+      # 不使用gh-action-pypi-publish，改用twine直接上传
+      run: |
+        python -m twine upload dist/*
+      env:
+        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
     
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v1
