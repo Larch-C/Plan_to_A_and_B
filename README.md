@@ -1,5 +1,9 @@
 # 计划管理工具 (Plan Manager)
 
+[![CI Status](https://github.com/yourusername/plan-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/plan-manager/actions/workflows/ci.yml)
+[![Release Status](https://github.com/yourusername/plan-manager/actions/workflows/release.yml/badge.svg)](https://github.com/yourusername/plan-manager/actions/workflows/release.yml)
+[![Documentation Status](https://github.com/yourusername/plan-manager/actions/workflows/docs.yml/badge.svg)](https://github.com/yourusername/plan-manager/actions/workflows/docs.yml)
+
 这是一个简单的计划管理工具，可以帮助你存储、管理和跟踪各种计划任务。
 
 ## 功能特点

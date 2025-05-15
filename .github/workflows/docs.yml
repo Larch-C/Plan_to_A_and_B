@@ -1,0 +1,71 @@
+name: Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - '.github/workflows/docs.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install mkdocs mkdocs-material
+        pip install -e .
+    
+    - name: Setup docs directory
+      run: |
+        mkdir -p docs
+        # 如果docs目录为空，创建基本文档
+        if [ ! "$(ls -A docs)" ]; then
+          mkdir -p docs/images
+          cp README.md docs/index.md
+          cp CHANGELOG.md docs/changelog.md
+          # 创建mkdocs配置
+          cat > mkdocs.yml << EOF
+        site_name: 计划管理工具
+        site_description: 一个简单的计划管理工具
+        site_author: 麦咪
+        repo_url: https://github.com/${{ github.repository }}
+        theme:
+          name: material
+          palette:
+            primary: indigo
+            accent: indigo
+          features:
+            - navigation.instant
+            - navigation.tracking
+            - navigation.expand
+            - navigation.indexes
+            - content.tabs.link
+        nav:
+          - 首页: index.md
+          - 更新日志: changelog.md
+        markdown_extensions:
+          - admonition
+          - codehilite
+          - toc:
+              permalink: true
+        EOF
+        fi
+    
+    - name: Build and deploy docs
+      uses: mhausenblas/mkdocs-deploy-gh-pages@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CONFIG_FILE: mkdocs.yml
+        EXTRA_PACKAGES: build-base 
