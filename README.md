@@ -3,6 +3,7 @@
 [![CI Status](https://github.com/yourusername/plan-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/plan-manager/actions/workflows/ci.yml)
 [![Release Status](https://github.com/yourusername/plan-manager/actions/workflows/release.yml/badge.svg)](https://github.com/yourusername/plan-manager/actions/workflows/release.yml)
 [![Documentation Status](https://github.com/yourusername/plan-manager/actions/workflows/docs.yml/badge.svg)](https://github.com/yourusername/plan-manager/actions/workflows/docs.yml)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 
 这是一个简单的计划管理工具，可以帮助你存储、管理和跟踪各种计划任务。
 
@@ -206,10 +207,10 @@ uv pip install -e ".[dev]"
 # 或者
 uv pip install -r requirements/dev.txt
 
-# 设置Git钩子（可选，推荐）
-chmod +x tools/pre-commit tools/commit-msg
-ln -sf ../../tools/pre-commit .git/hooks/pre-commit
-ln -sf ../../tools/commit-msg .git/hooks/commit-msg
+# 安装pre-commit钩子（推荐）
+pip install pre-commit
+pre-commit install
+pre-commit install --hook-type commit-msg
 ```
 
 ### 自动化工具
@@ -217,14 +218,17 @@ ln -sf ../../tools/commit-msg .git/hooks/commit-msg
 项目包含多个自动化工具，简化开发流程：
 
 ```bash
+# 运行所有pre-commit检查
+pre-commit run --all-files
+
 # 代码格式化
-uv pip run black plan_manager tests
+black plan_manager
 
 # 类型检查
-uv pip run mypy plan_manager
+mypy plan_manager
 
 # 代码风格检查
-uv pip run flake8 plan_manager
+flake8 plan_manager
 
 # 自动生成更新日志（基于Git提交记录）
 python tools/generate_changelog.py

@@ -28,18 +28,25 @@ jobs:
         python -m pip install --upgrade pip
         pip install uv
         uv pip install --system -e ".[dev]"
+        uv pip install --system pre-commit
     
-    - name: Check code formatting
-      run: |
-        black --check plan_manager
+    - name: Set up pre-commit cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pre-commit
+        key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
     
-    - name: Lint with flake8
+    - name: Run pre-commit
       run: |
-        flake8 plan_manager
-    
-    - name: Type check with mypy
-      run: |
-        mypy plan_manager
+        pre-commit run --all-files
+        # 在PR中我们只检查，但在主分支上我们允许自动修复
+        if [[ "${{ github.event_name }}" != "pull_request" && -n $(git status -s) ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "style: 使用pre-commit自动修复代码风格问题"
+          git push
+        fi
     
     - name: Test with pytest
       run: |
