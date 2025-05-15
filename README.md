@@ -267,4 +267,4 @@ uv pip run pytest --cov=plan_manager
 
 ## 许可证
 
-MIT 
+AGPL-3.0 license
