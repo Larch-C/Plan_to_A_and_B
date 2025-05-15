@@ -1,0 +1,1146 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一个简单的计划管理工具">
+      
+      
+        <meta name="author" content="麦咪">
+      
+      
+      
+      
+        <link rel="next" href="changelog/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>计划管理工具</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#plan-manager" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="计划管理工具" class="md-header__button md-logo" aria-label="计划管理工具" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            计划管理工具
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              首页
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Larch-C/Plan_to_A_and_B" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="计划管理工具" class="md-nav__button md-logo" aria-label="计划管理工具" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    计划管理工具
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Larch-C/Plan_to_A_and_B" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能特点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="安装方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用uv安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接安装
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动方式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      图形界面版本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令行版本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="命令行版本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数说明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加计划 (add)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      列出计划 (list)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新计划 (update)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除计划 (delete)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      完成计划 (complete)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upcoming" class="md-nav__link">
+    <span class="md-ellipsis">
+      即将到期 (upcoming)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据存储
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      开发
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="开发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uv_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用uv设置开发环境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      自动化工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git提交规范
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      许可证
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    更新日志
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      功能特点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      项目结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      安装方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="安装方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用uv安装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      直接安装
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      启动方式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      图形界面版本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令行版本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="命令行版本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本命令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数说明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加计划 (add)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    <span class="md-ellipsis">
+      列出计划 (list)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新计划 (update)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除计划 (delete)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      完成计划 (complete)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upcoming" class="md-nav__link">
+    <span class="md-ellipsis">
+      即将到期 (upcoming)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      数据存储
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      开发
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="开发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uv_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用uv设置开发环境
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      自动化工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Git提交规范
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      运行测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      许可证
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="plan-manager">计划管理工具 (Plan Manager)<a class="headerlink" href="#plan-manager" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/yourusername/plan-manager/actions/workflows/ci.yml"><img alt="CI Status" src="https://github.com/yourusername/plan-manager/actions/workflows/ci.yml/badge.svg" /></a>
+<a href="https://github.com/yourusername/plan-manager/actions/workflows/release.yml"><img alt="Release Status" src="https://github.com/yourusername/plan-manager/actions/workflows/release.yml/badge.svg" /></a>
+<a href="https://github.com/yourusername/plan-manager/actions/workflows/docs.yml"><img alt="Documentation Status" src="https://github.com/yourusername/plan-manager/actions/workflows/docs.yml/badge.svg" /></a></p>
+<p>这是一个简单的计划管理工具，可以帮助你存储、管理和跟踪各种计划任务。</p>
+<h2 id="_1">功能特点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>添加、更新、删除和查看计划</li>
+<li>设置计划优先级（低、中、高）</li>
+<li>添加标签以便分类管理</li>
+<li>设置截止日期</li>
+<li>查看即将到期的计划</li>
+<li>标记计划为已完成</li>
+<li>通过多种条件筛选计划</li>
+<li>支持命令行和图形界面两种方式使用</li>
+</ul>
+<p>查看 <a href="CHANGELOG.md">更新日志</a> 获取各版本详细功能列表与改动说明。</p>
+<h2 id="_2">项目结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">plan_manager</span><span class="o">/</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">plan_manager</span><span class="o">/</span><span class="w">          </span><span class="c1"># 包目录</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">__init__</span><span class="o">.</span><span class="n">py</span><span class="w">        </span><span class="c1"># 包初始化文件</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">main</span><span class="o">.</span><span class="n">py</span><span class="w">            </span><span class="c1"># 主程序入口</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">models</span><span class="o">/</span><span class="w">            </span><span class="c1"># 数据模型</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">plan</span><span class="o">.</span><span class="n">py</span><span class="w">        </span><span class="c1"># 计划数据模型</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">core</span><span class="o">/</span><span class="w">              </span><span class="c1"># 核心功能</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">manager</span><span class="o">.</span><span class="n">py</span><span class="w">     </span><span class="c1"># 计划管理器</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">cli</span><span class="o">/</span><span class="w">               </span><span class="c1"># 命令行接口</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">main</span><span class="o">.</span><span class="n">py</span><span class="w">        </span><span class="c1"># 命令行入口</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">gui</span><span class="o">/</span><span class="w">               </span><span class="c1"># 图形界面</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">app</span><span class="o">.</span><span class="n">py</span><span class="w">         </span><span class="c1"># GUI应用</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">utils</span><span class="o">/</span><span class="w">             </span><span class="c1"># 工具函数</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+<span class="err">│</span><span class="w">   </span><span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">formatters</span><span class="o">.</span><span class="n">py</span><span class="w">  </span><span class="c1"># 格式化工具</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="w">               </span><span class="c1"># 可执行脚本</span>
+<span class="err">│</span><span class="w">       </span><span class="err">├──</span><span class="w"> </span><span class="n">plan</span><span class="o">-</span><span class="n">manager</span><span class="w">      </span><span class="c1"># 命令行启动脚本</span>
+<span class="err">│</span><span class="w">       </span><span class="err">└──</span><span class="w"> </span><span class="n">plan</span><span class="o">-</span><span class="n">manager</span><span class="o">-</span><span class="n">gui</span><span class="w">  </span><span class="c1"># GUI启动脚本</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">pyproject</span><span class="o">.</span><span class="n">toml</span><span class="w">         </span><span class="c1"># 项目配置文件</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">requirements</span><span class="o">/</span><span class="w">          </span><span class="c1"># 依赖管理</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">base</span><span class="o">.</span><span class="n">txt</span><span class="w">           </span><span class="c1"># 基础依赖</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">dev</span><span class="o">.</span><span class="n">txt</span><span class="w">            </span><span class="c1"># 开发依赖</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">tools</span><span class="o">/</span><span class="w">                 </span><span class="c1"># 开发工具脚本</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">generate_changelog</span><span class="o">.</span><span class="n">py</span><span class="w">  </span><span class="c1"># 自动生成更新日志</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">version</span><span class="o">-</span><span class="n">bump</span><span class="w">           </span><span class="c1"># 版本升级工具</span>
+<span class="err">│</span><span class="w">   </span><span class="err">├──</span><span class="w"> </span><span class="n">pre</span><span class="o">-</span><span class="n">commit</span><span class="w">             </span><span class="c1"># Git提交前钩子</span>
+<span class="err">│</span><span class="w">   </span><span class="err">└──</span><span class="w"> </span><span class="n">commit</span><span class="o">-</span><span class="n">msg</span><span class="w">             </span><span class="c1"># Git提交消息验证钩子</span>
+<span class="err">├──</span><span class="w"> </span><span class="n">CHANGELOG</span><span class="o">.</span><span class="n">md</span><span class="w">           </span><span class="c1"># 更新日志</span>
+<span class="err">└──</span><span class="w"> </span><span class="n">README</span><span class="o">.</span><span class="n">md</span><span class="w">              </span><span class="c1"># 项目说明文档</span>
+</code></pre></div>
+
+<h2 id="_3">安装方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>这个项目使用现代Python打包方式和uv依赖管理。</p>
+<h3 id="uv">使用uv安装<a class="headerlink" href="#uv" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 安装uv (如果尚未安装)</span>
+pip<span class="w"> </span>install<span class="w"> </span>uv
+
+<span class="c1"># 从仓库克隆</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/plan-manager.git
+<span class="nb">cd</span><span class="w"> </span>plan-manager
+
+<span class="c1"># 创建并激活虚拟环境</span>
+uv<span class="w"> </span>venv
+
+<span class="c1"># 在开发模式下安装</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+
+<span class="c1"># 如果需要安装开发依赖</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/dev.txt
+</code></pre></div>
+
+<h3 id="_4">直接安装<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 安装发布版本</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>plan-manager
+
+<span class="c1"># 或从GitHub安装最新版本</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/yourusername/plan-manager.git
+</code></pre></div>
+
+<h2 id="_5">使用方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">启动方式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>安装后，可以通过以下命令启动：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 命令行模式</span>
+plan-manager
+
+<span class="c1"># 图形界面模式</span>
+plan-manager-gui
+<span class="c1"># 或者</span>
+plan-manager<span class="w"> </span>--gui
+</code></pre></div>
+
+<h3 id="_7">图形界面版本<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>图形界面提供了直观的操作方式：
+- 左侧面板可以筛选计划（按优先级、标签、完成状态）
+- 中间区域显示计划列表，不同优先级用不同颜色标注
+- 右键点击计划可以进行快捷操作
+- 双击计划可以查看详细信息
+- 顶部菜单和底部按钮提供各种功能</p>
+<h3 id="_8">命令行版本<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h4 id="_9">基本命令<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 添加新计划</span>
+plan-manager<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;计划标题&quot;</span><span class="w"> </span><span class="s2">&quot;计划描述&quot;</span><span class="w"> </span>--deadline<span class="w"> </span><span class="m">2023</span>-12-31<span class="w"> </span>--priority<span class="w"> </span>high<span class="w"> </span>--tags<span class="w"> </span>工作<span class="w"> </span>重要
+
+<span class="c1"># 列出所有计划</span>
+plan-manager<span class="w"> </span>list
+
+<span class="c1"># 按标签筛选计划</span>
+plan-manager<span class="w"> </span>list<span class="w"> </span>--tags<span class="w"> </span>工作
+
+<span class="c1"># 按优先级筛选计划</span>
+plan-manager<span class="w"> </span>list<span class="w"> </span>--priority<span class="w"> </span>high
+
+<span class="c1"># 只显示未完成的计划</span>
+plan-manager<span class="w"> </span>list<span class="w"> </span>--uncompleted
+
+<span class="c1"># 只显示已完成的计划</span>
+plan-manager<span class="w"> </span>list<span class="w"> </span>--completed
+
+<span class="c1"># 更新计划</span>
+plan-manager<span class="w"> </span>update<span class="w"> </span>计划ID<span class="w"> </span>--title<span class="w"> </span><span class="s2">&quot;新标题&quot;</span><span class="w"> </span>--description<span class="w"> </span><span class="s2">&quot;新描述&quot;</span><span class="w"> </span>--deadline<span class="w"> </span><span class="m">2024</span>-01-15
+
+<span class="c1"># 删除计划</span>
+plan-manager<span class="w"> </span>delete<span class="w"> </span>计划ID
+
+<span class="c1"># 标记计划为已完成</span>
+plan-manager<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>计划ID
+
+<span class="c1"># 查看即将到期的计划（默认7天内）</span>
+plan-manager<span class="w"> </span>upcoming
+
+<span class="c1"># 查看10天内即将到期的计划</span>
+plan-manager<span class="w"> </span>upcoming<span class="w"> </span>--days<span class="w"> </span><span class="m">10</span>
+</code></pre></div>
+
+<h4 id="_10">参数说明<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h5 id="add">添加计划 (add)<a class="headerlink" href="#add" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>title</code>: 计划标题</li>
+<li><code>description</code>: 计划描述</li>
+<li><code>--deadline</code>, <code>-d</code>: 截止日期，格式为 YYYY-MM-DD</li>
+<li><code>--priority</code>, <code>-p</code>: 优先级，可选 low/medium/high，默认为 medium</li>
+<li><code>--tags</code>, <code>-t</code>: 标签列表，可添加多个标签</li>
+</ul>
+<h5 id="list">列出计划 (list)<a class="headerlink" href="#list" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>--tags</code>, <code>-t</code>: 按标签筛选</li>
+<li><code>--priority</code>, <code>-p</code>: 按优先级筛选</li>
+<li><code>--completed</code>, <code>-c</code>: 只显示已完成的计划</li>
+<li><code>--uncompleted</code>, <code>-u</code>: 只显示未完成的计划</li>
+</ul>
+<h5 id="update">更新计划 (update)<a class="headerlink" href="#update" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>id</code>: 计划ID</li>
+<li><code>--title</code>: 更新标题</li>
+<li><code>--description</code>: 更新描述</li>
+<li><code>--deadline</code>, <code>-d</code>: 更新截止日期</li>
+<li><code>--priority</code>, <code>-p</code>: 更新优先级</li>
+<li><code>--tags</code>, <code>-t</code>: 更新标签</li>
+</ul>
+<h5 id="delete">删除计划 (delete)<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>id</code>: 计划ID</li>
+</ul>
+<h5 id="complete">完成计划 (complete)<a class="headerlink" href="#complete" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>id</code>: 计划ID</li>
+</ul>
+<h5 id="upcoming">即将到期 (upcoming)<a class="headerlink" href="#upcoming" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>--days</code>, <code>-d</code>: 未来天数，默认为7天</li>
+</ul>
+<h2 id="_11">数据存储<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>所有计划数据存储在当前目录下的 <code>plans.json</code> 文件中。您可以备份此文件以保存您的计划数据。命令行版本和图形界面版本共享同一个数据文件。</p>
+<h2 id="_12">开发<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="uv_1">使用uv设置开发环境<a class="headerlink" href="#uv_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 克隆仓库</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/plan-manager.git
+<span class="nb">cd</span><span class="w"> </span>plan-manager
+
+<span class="c1"># 创建虚拟环境并安装开发依赖</span>
+uv<span class="w"> </span>venv
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+<span class="c1"># 或者</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements/dev.txt
+
+<span class="c1"># 设置Git钩子（可选，推荐）</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>tools/pre-commit<span class="w"> </span>tools/commit-msg
+ln<span class="w"> </span>-sf<span class="w"> </span>../../tools/pre-commit<span class="w"> </span>.git/hooks/pre-commit
+ln<span class="w"> </span>-sf<span class="w"> </span>../../tools/commit-msg<span class="w"> </span>.git/hooks/commit-msg
+</code></pre></div>
+
+<h3 id="_13">自动化工具<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>项目包含多个自动化工具，简化开发流程：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 代码格式化</span>
+uv<span class="w"> </span>pip<span class="w"> </span>run<span class="w"> </span>black<span class="w"> </span>plan_manager<span class="w"> </span>tests
+
+<span class="c1"># 类型检查</span>
+uv<span class="w"> </span>pip<span class="w"> </span>run<span class="w"> </span>mypy<span class="w"> </span>plan_manager
+
+<span class="c1"># 代码风格检查</span>
+uv<span class="w"> </span>pip<span class="w"> </span>run<span class="w"> </span>flake8<span class="w"> </span>plan_manager
+
+<span class="c1"># 自动生成更新日志（基于Git提交记录）</span>
+python<span class="w"> </span>tools/generate_changelog.py
+
+<span class="c1"># 版本升级（自动更新版本号并生成更新日志）</span>
+python<span class="w"> </span>tools/version-bump.py<span class="w"> </span><span class="o">[</span>major<span class="p">|</span>minor<span class="p">|</span>patch<span class="o">]</span>
+</code></pre></div>
+
+<h3 id="git">Git提交规范<a class="headerlink" href="#git" title="Permanent link">&para;</a></h3>
+<p>项目使用<a href="https://www.conventionalcommits.org/zh-hans/">约定式提交</a>规范，提交消息格式为：</p>
+<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">type</span><span class="o">&gt;</span><span class="p">[</span><span class="n">optional</span><span class="w"> </span><span class="n">scope</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="n">description</span><span class="o">&gt;</span>
+
+<span class="p">[</span><span class="n">optional</span><span class="w"> </span><span class="n">body</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">optional</span><span class="w"> </span><span class="n">footer</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span>
+</code></pre></div>
+
+<p>常用的类型包括：
+- <code>feat</code>: 新功能
+- <code>fix</code>: 修复bug
+- <code>docs</code>: 文档变更
+- <code>style</code>: 代码风格变更
+- <code>refactor</code>: 代码重构
+- <code>perf</code>: 性能优化
+- <code>test</code>: 测试相关
+- <code>build</code>: 构建系统
+- <code>ci</code>: CI配置
+- <code>chore</code>: 其他杂项</p>
+<p>使用规范的提交消息可以自动生成结构化的更新日志。</p>
+<h3 id="_14">运行测试<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 运行测试</span>
+uv<span class="w"> </span>pip<span class="w"> </span>run<span class="w"> </span>pytest
+
+<span class="c1"># 带覆盖率报告</span>
+uv<span class="w"> </span>pip<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>--cov<span class="o">=</span>plan_manager
+</code></pre></div>
+
+<h2 id="_15">许可证<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>AGPL-3.0 license</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.indexes", "content.tabs.link"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
