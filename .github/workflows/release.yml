@@ -34,6 +34,16 @@ jobs:
       run: |
         echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
     
+    - name: Create and Push Tag (if manually triggered)
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git tag -a $VERSION -m "Release $VERSION"
+        git push origin $VERSION
+      env:
+        VERSION: ${{ github.event.inputs.version }}
+    
     - name: Set version from tag
       if: github.event_name == 'push'
       run: |
