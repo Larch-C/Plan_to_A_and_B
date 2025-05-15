@@ -9,6 +9,9 @@ on:
       - '.pre-commit-config.yaml'
       - '.github/workflows/setup-hooks.yml'
 
+permissions:
+  contents: write
+
 jobs:
   setup-hooks:
     runs-on: ubuntu-latest

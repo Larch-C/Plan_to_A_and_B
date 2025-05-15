@@ -11,6 +11,9 @@ on:
         required: true
         default: ''
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
