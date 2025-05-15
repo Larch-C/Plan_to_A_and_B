@@ -20,7 +20,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         fetch-depth: 0
+        ref: ${{ github.head_ref || github.ref_name }}
     
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
@@ -43,32 +45,31 @@ jobs:
     
     - name: Run pre-commit
       run: |
-        # 移除plan_manager.py或创建一个__pycache__目录避免mypy模块重复错误
+        # 创建__pycache__目录
         mkdir -p plan_manager/__pycache__
         
-        pre-commit run --all-files || true
+        # 运行pre-commit（不在workflow目录上）
+        pre-commit run --files $(git ls-files | grep -v "\.github/workflows/")
         
         # 在PR中我们只检查，但在主分支上我们允许自动修复
-        if [[ "${{ github.event_name }}" != "pull_request" && -n $(git status -s) ]]; then
+        if [[ "${{ github.event_name }}" != "pull_request" && -n $(git status -s | grep -v "\.github/workflows/") ]]; then
+          # 配置git
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # 先暂存所有更改
-          git add .
+          # 只添加非工作流文件
+          git ls-files --modified --others --exclude-standard | grep -v "\.github/workflows/" | xargs git add
           
-          # 提交workflow文件以外的更改
-          if git diff --cached --name-only | grep -v "\.github/workflows/" | wc -l | grep -q "[1-9]"; then
-            # 删除工作流文件的暂存状态，但保留修改
-            git reset -- .github/workflows/
-            
-            # 确保我们有最新的更改（不会影响工作流文件，因为它们未暂存）
-            git pull --rebase origin main
-            
-            # 提交非工作流文件的更改
-            git commit -m "style: 使用pre-commit自动修复代码风格问题"
-            git push
+          # 如果有文件被添加到暂存区
+          if git diff --cached --quiet; then
+            echo "没有非工作流文件需要提交"
           else
-            echo "没有需要提交的非工作流文件更改"
+            # 拉取最新更改
+            git pull --rebase origin ${GITHUB_REF#refs/heads/}
+            
+            # 提交更改
+            git commit -m "style: 使用pre-commit自动修复代码风格问题"
+            git push origin ${GITHUB_REF#refs/heads/}
           fi
         fi
     
