@@ -10,14 +10,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="plan-manager",  
+    name="plan-manager",
     version="1.0.0",
-    author="麦咪", 
-    author_email="maimai@example.com", 
+    author="麦咪",
+    author_email="maimai@example.com",
     description="一个简单的计划管理工具",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/plan-manager",  
+    url="https://github.com/yourusername/plan-manager",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
@@ -38,4 +38,4 @@ setup(
     install_requires=[
         # 依赖包，本项目只使用标准库
     ],
-) 
+)

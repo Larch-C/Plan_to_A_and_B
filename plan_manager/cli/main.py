@@ -13,51 +13,68 @@ def parse_args():
     """解析命令行参数"""
     parser = argparse.ArgumentParser(description="计划管理工具")
     subparsers = parser.add_subparsers(dest="command", help="子命令")
-    
+
     # 添加计划
     add_parser = subparsers.add_parser("add", help="添加新计划")
     add_parser.add_argument("title", help="计划标题")
     add_parser.add_argument("description", help="计划描述")
     add_parser.add_argument("--deadline", "-d", help="截止日期 (YYYY-MM-DD)")
-    add_parser.add_argument("--priority", "-p", default="medium", 
-                           choices=["low", "medium", "high"], help="优先级")
+    add_parser.add_argument(
+        "--priority",
+        "-p",
+        default="medium",
+        choices=["low", "medium", "high"],
+        help="优先级",
+    )
     add_parser.add_argument("--tags", "-t", nargs="+", help="标签列表")
-    
+
     # 列出计划
     list_parser = subparsers.add_parser("list", help="列出计划")
     list_parser.add_argument("--tags", "-t", nargs="+", help="按标签筛选")
-    list_parser.add_argument("--priority", "-p", choices=["low", "medium", "high"], 
-                            help="按优先级筛选")
-    list_parser.add_argument("--completed", "-c", action="store_true", help="只显示已完成的计划")
-    list_parser.add_argument("--uncompleted", "-u", action="store_true", help="只显示未完成的计划")
-    
+    list_parser.add_argument(
+        "--priority", "-p", choices=["low", "medium", "high"], help="按优先级筛选"
+    )
+    list_parser.add_argument(
+        "--completed", "-c", action="store_true", help="只显示已完成的计划"
+    )
+    list_parser.add_argument(
+        "--uncompleted", "-u", action="store_true", help="只显示未完成的计划"
+    )
+
     # 更新计划
     update_parser = subparsers.add_parser("update", help="更新计划")
     update_parser.add_argument("id", help="计划ID")
     update_parser.add_argument("--title", help="更新标题")
     update_parser.add_argument("--description", help="更新描述")
     update_parser.add_argument("--deadline", "-d", help="更新截止日期 (YYYY-MM-DD)")
-    update_parser.add_argument("--priority", "-p", choices=["low", "medium", "high"], 
-                              help="更新优先级")
+    update_parser.add_argument(
+        "--priority", "-p", choices=["low", "medium", "high"], help="更新优先级"
+    )
     update_parser.add_argument("--tags", "-t", nargs="+", help="更新标签")
-    
+
     # 删除计划
     delete_parser = subparsers.add_parser("delete", help="删除计划")
     delete_parser.add_argument("id", help="计划ID")
-    
+
     # 完成计划
     complete_parser = subparsers.add_parser("complete", help="标记计划为已完成")
     complete_parser.add_argument("id", help="计划ID")
-    
+
     # 即将到期
     upcoming_parser = subparsers.add_parser("upcoming", help="查看即将到期的计划")
     upcoming_parser.add_argument("--days", "-d", type=int, default=7, help="未来天数")
-    
+
     return parser.parse_args()
 
 
-def add_plan(manager: PlanManager, title: str, description: str, 
-            deadline: Optional[str], priority: str, tags: List[str]) -> None:
+def add_plan(
+    manager: PlanManager,
+    title: str,
+    description: str,
+    deadline: Optional[str],
+    priority: str,
+    tags: List[str],
+) -> None:
     """添加计划处理函数"""
     try:
         plan_id = manager.add_plan(title, description, deadline, priority, tags)
@@ -66,7 +83,9 @@ def add_plan(manager: PlanManager, title: str, description: str,
         print(f"错误: {e}")
 
 
-def list_plans(manager: PlanManager, tags: List[str], priority: str, completed: Optional[bool]) -> None:
+def list_plans(
+    manager: PlanManager, tags: List[str], priority: str, completed: Optional[bool]
+) -> None:
     """列出计划处理函数"""
     plans = manager.get_plans(tags, priority, completed)
     if not plans:
@@ -125,9 +144,16 @@ def main():
     """命令行主函数"""
     args = parse_args()
     manager = PlanManager()
-    
+
     if args.command == "add":
-        add_plan(manager, args.title, args.description, args.deadline, args.priority, args.tags)
+        add_plan(
+            manager,
+            args.title,
+            args.description,
+            args.deadline,
+            args.priority,
+            args.tags,
+        )
     elif args.command == "list":
         completed = None
         if args.completed:
@@ -161,4 +187,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main() 
+    main()

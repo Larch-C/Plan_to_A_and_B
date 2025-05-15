@@ -82,4 +82,4 @@ categories = [           # 变更类别映射
     {type = "build", section = "其他"},
     {type = "ci", section = "其他"},
     {type = "chore", section = "其他"},
-] 
+]

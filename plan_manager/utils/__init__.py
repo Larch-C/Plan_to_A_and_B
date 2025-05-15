@@ -4,4 +4,4 @@
 
 from .formatters import format_plan_for_display, format_plan_color
 
-__all__ = ['format_plan_for_display', 'format_plan_color'] 
+__all__ = ["format_plan_for_display", "format_plan_color"]
