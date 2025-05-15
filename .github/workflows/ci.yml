@@ -27,23 +27,23 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install uv
-        uv pip install -e ".[dev]"
+        uv pip install --system -e ".[dev]"
     
     - name: Check code formatting
       run: |
-        uv pip run black --check plan_manager tests
+        uv pip run --system black --check plan_manager tests
     
     - name: Lint with flake8
       run: |
-        uv pip run flake8 plan_manager tests
+        uv pip run --system flake8 plan_manager tests
     
     - name: Type check with mypy
       run: |
-        uv pip run mypy plan_manager
+        uv pip run --system mypy plan_manager
     
     - name: Test with pytest
       run: |
-        uv pip run pytest --cov=plan_manager
+        uv pip run --system pytest --cov=plan_manager
     
   build:
     runs-on: ubuntu-latest

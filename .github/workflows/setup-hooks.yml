@@ -1,0 +1,70 @@
+name: Setup Git Hooks
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/pre-commit'
+      - 'tools/commit-msg'
+      - '.github/workflows/setup-hooks.yml'
+
+jobs:
+  setup-hooks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Make hook scripts executable
+      run: |
+        chmod +x tools/pre-commit
+        chmod +x tools/commit-msg
+        chmod +x tools/generate_changelog.py
+        chmod +x tools/version-bump
+    
+    - name: Document git hooks setup
+      run: |
+        echo "## 设置Git Hooks" >> CONTRIBUTING.md
+        echo "" >> CONTRIBUTING.md
+        echo "请在克隆此仓库后运行以下命令设置Git钩子：" >> CONTRIBUTING.md
+        echo "" >> CONTRIBUTING.md
+        echo '```bash' >> CONTRIBUTING.md
+        echo "# 确保钩子脚本可执行" >> CONTRIBUTING.md
+        echo "chmod +x tools/pre-commit tools/commit-msg tools/generate_changelog.py tools/version-bump" >> CONTRIBUTING.md
+        echo "" >> CONTRIBUTING.md
+        echo "# 创建符号链接到.git/hooks目录" >> CONTRIBUTING.md
+        echo "ln -sf ../../tools/pre-commit .git/hooks/pre-commit" >> CONTRIBUTING.md
+        echo "ln -sf ../../tools/commit-msg .git/hooks/commit-msg" >> CONTRIBUTING.md
+        echo '```' >> CONTRIBUTING.md
+        
+        if [ ! -f CONTRIBUTING.md ]; then
+          echo "# 贡献指南" > CONTRIBUTING.md
+          echo "" >> CONTRIBUTING.md
+          echo "感谢您对计划管理工具的贡献兴趣！" >> CONTRIBUTING.md
+          echo "" >> CONTRIBUTING.md
+          echo "## 设置开发环境" >> CONTRIBUTING.md
+          echo "" >> CONTRIBUTING.md
+          echo '```bash' >> CONTRIBUTING.md
+          echo "# 克隆仓库" >> CONTRIBUTING.md
+          echo "git clone https://github.com/yourusername/plan-manager.git" >> CONTRIBUTING.md
+          echo "cd plan-manager" >> CONTRIBUTING.md
+          echo "" >> CONTRIBUTING.md
+          echo "# 创建虚拟环境并安装开发依赖" >> CONTRIBUTING.md
+          echo "uv venv" >> CONTRIBUTING.md
+          echo "uv pip install -e \".[dev]\"" >> CONTRIBUTING.md
+          echo '```' >> CONTRIBUTING.md
+          echo "" >> CONTRIBUTING.md
+        fi
+    
+    - name: Commit changes if CONTRIBUTING.md was modified
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add CONTRIBUTING.md
+        
+        # 只有当CONTRIBUTING.md有变化时才提交
+        if git diff --staged --quiet; then
+          echo "无需提交，CONTRIBUTING.md 未修改"
+        else
+          git commit -m "docs: 更新贡献指南，添加Git钩子设置说明"
+          git push
+        fi 
